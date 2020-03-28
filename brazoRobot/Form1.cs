@@ -20,6 +20,8 @@ namespace brazoRobot
         int r = 200 / 2 - 70;
         int l = 10 * 5;
         int angle = 0;
+        int angle2 = 0;
+        int angle3 = 0;
         int center = 400 / 2;
         int R;
         int accuracy = 1;
@@ -41,13 +43,8 @@ namespace brazoRobot
 
         private void dibujar()
         {
-            brazouno = new brazoUno(pictureBox1, txtEjeuno);
-            brazouno.graficarBrazo();
-        }
-
-        private void btnEjeunomas_Click(object sender, EventArgs e)
-        {
-            brazouno.graficarBrazo();
+           // brazouno = new brazoUno(pictureBox1, txtEjeuno);
+          //  brazouno.graficarBrazo();
         }
 
         private void btnEjeunomenos_Click(object sender, EventArgs e)
@@ -92,6 +89,18 @@ namespace brazoRobot
             Render(); // Execute render function
         }
 
+        private void trackBar2_ValueChanged(object sender, EventArgs e)
+        {
+            angle2 = trackBar2.Value; // As soon as the Value Changed store it in the angle int
+            Render(); // Execute render function
+        }
+
+        private void trackBar3_ValueChanged(object sender, EventArgs e)
+        {
+            angle3 = trackBar3.Value; // As soon as the Value Changed store it in the angle int
+            Render(); // Execute render function
+        }
+
         private int[] LineCoord(int angleIn, int radius, int center) // Get any point on the circle by the angle
         {
             int[] coord = new int[2]; // Setting up the int array for return
@@ -124,37 +133,43 @@ namespace brazoRobot
 
         private void Render()
         {
-              g = Graphics.FromImage(bmp); // Binds the graphics to the Bitmap
-           // g = pictureBox1.CreateGraphics();
-            pictureBox1.Image = bmp;
+           //   g = Graphics.FromImage(bmp); // Binds the graphics to the Bitmap
+            g = pictureBox1.CreateGraphics();
+            //pictureBox1.Image = bmp;
             g.Clear(Color.White); // Clears the screen
 
             R = (int)Math.Sqrt((Math.Pow((l / 2), 2) + Math.Pow(r, 2))); // Calculate the bigger radius
             int theta = (int)RadianToDegree(Math.Atan((double)(l / 2) / r)); // Calculate the angle theta
 
-            // This calculates the bigger radius' lines' coordinates
-            int x0 = LineCoord(angle + theta, R, center)[0];
-            int y0 = LineCoord(angle + theta, R, center)[1];
-            int x1 = LineCoord(angle + 360 - theta, R, center)[0];
-            int y1 = LineCoord(angle + 360 - theta, R, center)[1];
 
-         
+            //obtener centro
+            int xcentro = pictureBox1.Width / 2;
+            int ycentro = pictureBox1.Height;
+
            
-                //liena principal
-                g.DrawLine(new Pen(Color.FromArgb(150, 0, 0), 50f), new Point(center, center*2), new Point(LineCoord(angle, r, center)[0], LineCoord(angle, r, center)[1])); // Draw the Handle
-            
-            //liena azul
-              // g.DrawLine(new Pen(Color.FromArgb(0, 0, 230), 4f), new Point(x0, y0), new Point(x1, y1)); // Draw the Perpendicular Line
-           
-            //lineas a los lados
-                //g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), 1f), new Point(center, center), new Point(x0, y0)); // From centar to points on the Perpendicular Line
-                //g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), 1f), new Point(center, center), new Point(x1, y1)); // From centar to points on the Perpendicular Line
-            
+            // This calculates the bigger radius' lines' coordinates
+            int x0 = LineCoord(angle + theta, R, xcentro)[0];
+            int y0 = LineCoord(angle + theta, R, ycentro)[1];
+            int x1 = LineCoord(angle2 + 360 - theta, R, x0)[0];
+            int y1 = LineCoord(angle2 + 360 - theta, R, y0)[1];
+
+            g.DrawLine(new Pen(Color.FromArgb(150, 0, 0), 30f),
+                       new Point(xcentro, ycentro),
+                       new Point(LineCoord(angle, r, xcentro)[0], LineCoord(angle, r, ycentro)[1])); // Draw the Handle
+
+            g.DrawLine(new Pen(Color.FromArgb(0, 0, 230), 30f),
+                       new Point(LineCoord(angle, r, xcentro)[0], LineCoord(angle, r, ycentro)[1]),
+                       new Point(LineCoord(angle2, r, x0)[0], LineCoord(angle2, r, y0)[1]));
+
+            g.DrawLine(new Pen(Color.Chocolate, 30f),
+                       new Point(LineCoord(angle2, r, x0)[0], LineCoord(angle2, r, y0)[1]),
+                       new Point(LineCoord(angle3, r, x1)[0], LineCoord(angle3, r, y1)[1]));
+
+
 
             g.Dispose();
         }
 
-
-
+       
     }
 }
