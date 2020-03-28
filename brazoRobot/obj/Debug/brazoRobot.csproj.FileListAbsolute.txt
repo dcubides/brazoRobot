@@ -1,0 +1,10 @@
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\bin\Debug\brazoRobot.exe.config
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\bin\Debug\brazoRobot.exe
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\bin\Debug\brazoRobot.pdb
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csprojAssemblyReference.cache
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.Form1.resources
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.Properties.Resources.resources
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.GenerateResource.cache
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.CoreCompileInputs.cache
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.exe
+C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.pdb
