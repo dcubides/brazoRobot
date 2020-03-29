@@ -48,6 +48,7 @@ namespace brazoRobot
             tbAxis5.ValueChanged += new EventHandler(Controller.AlterArm5);
             btnGripper.Click += new EventHandler(Controller.ActionGripper);
             this.Shown += new EventHandler(Controller.MainInit);
+            this.FormClosed += new FormClosedEventHandler(Controller.MainEnd);
         }
     }
 }

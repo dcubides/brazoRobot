@@ -60,5 +60,18 @@ namespace brazoRobot.ControllerLayer
                 throw;
             }
         }
+
+        internal void MainEnd(object sender, EventArgs e)
+        {
+            try
+            {
+                this.model.StartRender = !this.model.StartRender;
+                this.model.StopThread();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

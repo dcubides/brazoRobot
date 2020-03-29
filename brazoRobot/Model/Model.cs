@@ -37,6 +37,7 @@ namespace brazoRobot.ModelLayer
         public int Angle5 { get => angle5; set => angle5 = value; }
         public Graphics G { get => g; set => g = value; }
         public bool StatusGripper { get => statusGripper; set => statusGripper = value; }
+        public bool StartRender { get => startRender; set => startRender = value; }
 
         #endregion Get&Set
 
@@ -45,24 +46,28 @@ namespace brazoRobot.ModelLayer
             this.box = new PictureBox();
             this.btnGripper = new Button();
             this.paintThread = new Thread(new ThreadStart(Run));
-            this.startRender = true;
+            this.StartRender = true;
             this.paintThread.Start();
             r = 50;
         }
 
+        public void StopThread()
+        {
+            this.paintThread.Abort();
+        }
+
         private void Run()
         {
-            while (this.startRender)
+            while (this.StartRender)
             {
                 try
                 {
                     Thread.Sleep(10);
+                    this.Render();
                 }
                 catch (Exception)
                 {
                 }
-
-                this.Render();
             }
         }
 
@@ -105,20 +110,18 @@ namespace brazoRobot.ModelLayer
             R = (int)Math.Sqrt((Math.Pow((Config.Large / 2), 2) + Math.Pow(r, 2))); // Calculate the bigger radius
             int theta = (int)RadianToDegree(Math.Atan((double)(Config.Large / 2) / r)); // Calculate the angle theta
 
-            g = Graphics.FromImage(bmp);
+            this.g = Graphics.FromImage(bmp);
+            this.g.TranslateTransform(CentroX, CentroY); //dibujar ejes x y y
+            this.g.ScaleTransform(1, -1);
 
-            box.Image = bmp;
-            g.Clear(Color.White);
-
-            Pen axisPen = new Pen(Color.Black, 1f);
-            g.TranslateTransform(CentroX, CentroY); //dibujar ejes x y y
-            g.DrawLine(axisPen, CentroX - 1, 0, CentroX * 2, 0); //eje x     //linea horizontal
-            g.DrawLine(axisPen, 0, CentroY, 0, CentroY * -1); //eje y/        //linea vertical
+            Pen axisPen = new Pen(Color.Black, 2);
+            this.g.DrawLine(axisPen, CentroX * -1, 0, CentroX * 2, 0); //eje x     //linea horizontal
+            this.g.DrawLine(axisPen, 0, CentroY, 0, CentroY * -1);  //eje y/        //linea vertical
 
             #endregion Pintar Ejes
 
-            g = Graphics.FromImage(bmp);
-            box.Image = bmp;
+            this.g = Graphics.FromImage(bmp);
+            this.box.Image = bmp;
 
             // This calculates the bigger radius' lines' coordinates
             int x0 = LineCoord(Angle + theta, R, CentroX)[0];
