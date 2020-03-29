@@ -139,12 +139,12 @@ namespace brazoRobot.ModelLayer
             int y3 = LineCoord(Angle4 + 360 - theta, R, y2)[1];
 
             //Center P5
-            int x4 = LineCoord(Angle4 + 360 - theta, R, x3)[0];
-            int y4 = LineCoord(Angle4 + 360 - theta, R, y3)[1];
+            int x4 = LineCoord(Angle5 + 360 - theta, R, x3)[0];
+            int y4 = LineCoord(Angle5 + 360 - theta, R, y3)[1];
 
             //Center P6
-            int x5 = LineCoord(Angle4 + 360 - theta, R, x3)[0];
-            int y5 = LineCoord(Angle4 + 360 - theta, R, y3)[1];
+            int x5 = LineCoord(Angle5 + 360 - theta, R, x3)[0];
+            int y5 = LineCoord(Angle5 + 360 - theta, R, y3)[1];
 
             Point finalPointArm1 = new Point(LineCoord(Angle, r, CentroX)[0], LineCoord(Angle, r, CentroY)[1]);
             Point finalPointArm2 = new Point(LineCoord(Angle2, r, x0)[0], LineCoord(Angle2, r, y0)[1]);
@@ -153,8 +153,22 @@ namespace brazoRobot.ModelLayer
             Point finalPointArmPA = new Point(LineCoord(Angle5, r, x3)[0], LineCoord(Angle5, r, y3)[1]);
             Point finalPointArmPB = new Point(LineCoord(Angle5 + 50, (r / 10) * 8, x3)[0], LineCoord(Angle5 + 50, (r / 10) * 8, y3)[1]);
             Point finalPointArmPC = new Point(LineCoord(Angle5 - 50, (r / 10) * 8, x3)[0], LineCoord(Angle5 - 50, (r / 10) * 8, y3)[1]);
-            Point finalPointArmPD = new Point(LineCoord(Angle5 - 50, (r / 10) * 1, x4)[0], LineCoord(Angle5 - 50, (r / 10) * 1, y4)[1]);
-            Point finalPointArmPE = new Point(LineCoord(Angle5 + 50, (r / 10) * 1, x5)[0], LineCoord(Angle5 + 50, (r / 10) * 1, y5)[1]);
+
+            Point finalPointArmPD;
+            Point finalPointArmPE;
+
+            //arm
+            if (statusGripper)
+            {
+                finalPointArmPD = new Point(LineCoord(Angle5 - 50, (r / 10) * 1, x4)[0], LineCoord(Angle5 - 50, (r / 10) * 1, y4)[1]);
+                finalPointArmPE = new Point(LineCoord(Angle5 + 50, (r / 10) * 1, x5)[0], LineCoord(Angle5 + 50, (r / 10) * 1, y5)[1]);
+                //this.btnGripper.Text = "Abrir Pinza";
+            }
+            else
+            {
+                finalPointArmPD = new Point(LineCoord(Angle5 + 100, (r / 10) * 3, x4)[0], LineCoord(Angle5 + 100, (r / 10) * 3, y4)[1]);
+                finalPointArmPE = new Point(LineCoord(Angle5 - 100, (r / 10) * 3, x5)[0], LineCoord(Angle5 - 100, (r / 10) * 3, y5)[1]);
+            }
 
             //Rule 1
             Point basePointPolygonRule = new Point(CentroX, CentroY);
@@ -345,22 +359,10 @@ namespace brazoRobot.ModelLayer
             //    g.DrawEllipse(new Pen(Color.Firebrick, Config.PenSize), item.X, item.Y, 5, 5);
             //}
 
-            //arm
-            //if (statusGripper)
-            //{
-            //    finalPointArmPB = finalPointArmPA;
-            //    //this.btnGripper.Text = "Abrir Pinza";
-            //}
-            //else
-            //{
-            //    //this.btnGripper.Text = "Cerrar pinza";
-            //}
-
-            //g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArm4, finalPointArmPA); // From centar to points on the Perpendicular Line
             g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArm4, finalPointArmPB); // From centar to points on the Perpendicular Line
             g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArm4, finalPointArmPC); // From centar to points on the Perpendicular Line
-            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArmPB, finalPointArmPA); // From centar to points on the Perpendicular Line
-            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArmPC, finalPointArmPA); // From centar to points on the Perpendicular Line
+            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArmPB, finalPointArmPD); // From centar to points on the Perpendicular Line
+            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArmPC, finalPointArmPE); // From centar to points on the Perpendicular Line
 
             //Circulos De Unión
             g.FillEllipse(Brushes.Black, new Rectangle(new Point(finalPointArm1.X - PositionCircle, finalPointArm1.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
