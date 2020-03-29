@@ -44,9 +44,17 @@ namespace brazoRobot.ControllerLayer
 
         internal void MainInit(object sender, EventArgs e)
         {
-            this.model.Angle = 0;
-            this.model.Render();
-            MessageBox.Show("Hola estoy cargando ");
+            try
+            {
+                this.model.Angle = 0;
+                //MessageBox.Show("Hola estoy cargando ");
+
+                this.model.Render();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

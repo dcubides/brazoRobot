@@ -13,6 +13,7 @@ namespace brazoRobot.ModelLayer
         private int angle2 = 0;
         private int angle3 = 0;
         private int R;
+        private int r = 0;
         private Bitmap bmp = new Bitmap(400, 400);
         private PictureBox pictureBox = new PictureBox();
 
@@ -30,9 +31,8 @@ namespace brazoRobot.ModelLayer
 
         public Model()
         {
+            r = 100;
         }
-
-        private int r = 100;
 
         private int[] LineCoord(int angleIn, int radius, int center) // Get any point on the circle by the angle
         {
