@@ -8,3 +8,13 @@ C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoR
 C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.CoreCompileInputs.cache
 C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.exe
 C:\Users\david.cubides\Desktop\brazoRobot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.pdb
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csprojAssemblyReference.cache
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.Properties.Resources.resources
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.GenerateResource.cache
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.CoreCompileInputs.cache
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.exe
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.pdb
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\bin\Debug\brazoRobot.exe.config
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\bin\Debug\brazoRobot.exe
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\bin\Debug\brazoRobot.pdb
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.View.resources
