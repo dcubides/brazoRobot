@@ -32,7 +32,7 @@ namespace brazoRobot.ModelLayer
         {
         }
 
-        private int r = 50;
+        private int r = 100;
 
         private int[] LineCoord(int angleIn, int radius, int center) // Get any point on the circle by the angle
         {

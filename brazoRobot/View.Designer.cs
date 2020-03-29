@@ -74,32 +74,29 @@
             // tbAxis3
             // 
             this.tbAxis3.Location = new System.Drawing.Point(83, 103);
-            this.tbAxis3.Maximum = 1440;
-            this.tbAxis3.Minimum = 1;
+            this.tbAxis3.Maximum = 90;
+            this.tbAxis3.Minimum = -90;
             this.tbAxis3.Name = "tbAxis3";
             this.tbAxis3.Size = new System.Drawing.Size(174, 45);
             this.tbAxis3.TabIndex = 16;
-            this.tbAxis3.Value = 1;
             // 
             // tbAxis2
             // 
             this.tbAxis2.Location = new System.Drawing.Point(83, 66);
-            this.tbAxis2.Maximum = 1440;
-            this.tbAxis2.Minimum = 1;
+            this.tbAxis2.Maximum = 90;
+            this.tbAxis2.Minimum = -90;
             this.tbAxis2.Name = "tbAxis2";
             this.tbAxis2.Size = new System.Drawing.Size(174, 45);
             this.tbAxis2.TabIndex = 15;
-            this.tbAxis2.Value = 1;
             // 
             // tbAxis1
             // 
             this.tbAxis1.Location = new System.Drawing.Point(83, 19);
-            this.tbAxis1.Maximum = 1440;
-            this.tbAxis1.Minimum = 1;
+            this.tbAxis1.Maximum = 90;
+            this.tbAxis1.Minimum = -90;
             this.tbAxis1.Name = "tbAxis1";
             this.tbAxis1.Size = new System.Drawing.Size(174, 45);
             this.tbAxis1.TabIndex = 14;
-            this.tbAxis1.Value = 1;
             // 
             // label3
             // 

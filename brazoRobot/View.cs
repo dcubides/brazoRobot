@@ -43,7 +43,8 @@ namespace brazoRobot
             tbAxis1.ValueChanged += new EventHandler(Controller.AlterArm1);
             tbAxis2.ValueChanged += new EventHandler(Controller.AlterArm2);
             tbAxis3.ValueChanged += new EventHandler(Controller.AlterArm3);
-            btnGripper.Click += new EventHandler(controller.ActionGripper);
+            btnGripper.Click += new EventHandler(Controller.ActionGripper);
+            this.Shown += new EventHandler(Controller.MainInit);
         }
     }
 }
