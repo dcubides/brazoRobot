@@ -17,7 +17,8 @@ namespace brazoRobot
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View(new Model()));
+            View main = new View(new Model());
+            Application.Run(main);
         }
     }
 }

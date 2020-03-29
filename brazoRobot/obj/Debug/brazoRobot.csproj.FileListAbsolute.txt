@@ -17,3 +17,4 @@ C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoR
 C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.CoreCompileInputs.cache
 C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.exe
 C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.pdb
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csprojAssemblyReference.cache

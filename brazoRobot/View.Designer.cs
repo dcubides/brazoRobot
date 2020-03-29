@@ -37,16 +37,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pbGraph = new System.Windows.Forms.PictureBox();
+            this.tbAxis4 = new System.Windows.Forms.TrackBar();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbAxis5 = new System.Windows.Forms.TrackBar();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbAxis3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAxis2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAxis1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGraph)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAxis4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAxis5)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.tbAxis5);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.tbAxis4);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnGripper);
             this.groupBox1.Controls.Add(this.tbAxis3);
             this.groupBox1.Controls.Add(this.tbAxis2);
@@ -64,7 +74,7 @@
             // 
             // btnGripper
             // 
-            this.btnGripper.Location = new System.Drawing.Point(83, 164);
+            this.btnGripper.Location = new System.Drawing.Point(94, 245);
             this.btnGripper.Name = "btnGripper";
             this.btnGripper.Size = new System.Drawing.Size(75, 23);
             this.btnGripper.TabIndex = 17;
@@ -137,6 +147,44 @@
             this.pbGraph.TabIndex = 1;
             this.pbGraph.TabStop = false;
             // 
+            // tbAxis4
+            // 
+            this.tbAxis4.Location = new System.Drawing.Point(83, 143);
+            this.tbAxis4.Maximum = 135;
+            this.tbAxis4.Minimum = -90;
+            this.tbAxis4.Name = "tbAxis4";
+            this.tbAxis4.Size = new System.Drawing.Size(174, 45);
+            this.tbAxis4.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 143);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 18);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Eje 4:";
+            // 
+            // tbAxis5
+            // 
+            this.tbAxis5.Location = new System.Drawing.Point(83, 185);
+            this.tbAxis5.Maximum = 180;
+            this.tbAxis5.Minimum = -90;
+            this.tbAxis5.Name = "tbAxis5";
+            this.tbAxis5.Size = new System.Drawing.Size(174, 45);
+            this.tbAxis5.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(16, 185);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 18);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Eje 5:";
+            // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +200,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbAxis2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAxis1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGraph)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAxis4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbAxis5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,6 +217,10 @@
         private System.Windows.Forms.TrackBar tbAxis2;
         private System.Windows.Forms.TrackBar tbAxis3;
         private System.Windows.Forms.Button btnGripper;
+        private System.Windows.Forms.TrackBar tbAxis4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TrackBar tbAxis5;
+        private System.Windows.Forms.Label label5;
     }
 }
 

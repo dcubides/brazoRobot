@@ -35,6 +35,7 @@ namespace brazoRobot
             this.model = _Model;
             InitializeComponent();
             this.model.box = this.pbGraph;
+            this.model.btnGripper = this.btnGripper;
             AssingEvents();
         }
 
@@ -43,6 +44,8 @@ namespace brazoRobot
             tbAxis1.ValueChanged += new EventHandler(Controller.AlterArm1);
             tbAxis2.ValueChanged += new EventHandler(Controller.AlterArm2);
             tbAxis3.ValueChanged += new EventHandler(Controller.AlterArm3);
+            tbAxis4.ValueChanged += new EventHandler(Controller.AlterArm4);
+            tbAxis5.ValueChanged += new EventHandler(Controller.AlterArm5);
             btnGripper.Click += new EventHandler(Controller.ActionGripper);
             this.Shown += new EventHandler(Controller.MainInit);
         }

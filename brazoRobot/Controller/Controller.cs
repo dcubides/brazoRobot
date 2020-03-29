@@ -22,24 +22,31 @@ namespace brazoRobot.ControllerLayer
         public void AlterArm1(object sender, System.EventArgs e)
         {
             this.model.Angle = ((TrackBar)sender).Value;
-            this.model.Render();
         }
 
         internal void AlterArm2(object sender, EventArgs e)
         {
             this.model.Angle2 = ((TrackBar)sender).Value;
-            this.model.Render();
         }
 
         internal void AlterArm3(object sender, EventArgs e)
         {
             this.model.Angle3 = ((TrackBar)sender).Value;
-            this.model.Render();
+        }
+
+        internal void AlterArm4(object sender, EventArgs e)
+        {
+            this.model.Angle4 = ((TrackBar)sender).Value;
+        }
+
+        internal void AlterArm5(object sender, EventArgs e)
+        {
+            this.model.Angle5 = ((TrackBar)sender).Value;
         }
 
         internal void ActionGripper(object sender, EventArgs e)
         {
-            MessageBox.Show("Hola pinza ");
+            this.model.StatusGripper = !this.model.StatusGripper;
         }
 
         internal void MainInit(object sender, EventArgs e)
@@ -47,9 +54,6 @@ namespace brazoRobot.ControllerLayer
             try
             {
                 this.model.Angle = 0;
-                //MessageBox.Show("Hola estoy cargando ");
-
-                this.model.Render();
             }
             catch (Exception)
             {
