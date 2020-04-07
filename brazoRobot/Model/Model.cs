@@ -22,6 +22,7 @@ namespace brazoRobot.ModelLayer
         private int r = 0;
         private Bitmap bmp = new Bitmap(400, 400);
 
+        private bool showPoint = false;
         private Thread paintThread;
 
         #endregion Var
@@ -30,14 +31,66 @@ namespace brazoRobot.ModelLayer
 
         public PictureBox box { get; set; }
         public Button btnGripper { get; set; }
-        public int Angle { get => angle; set => angle = value; }
-        public int Angle2 { get => angle2; set => angle2 = value; }
-        public int Angle3 { get => angle3; set => angle3 = value; }
-        public int Angle4 { get => angle4; set => angle4 = value; }
-        public int Angle5 { get => angle5; set => angle5 = value; }
+
+        public int Angle
+        {
+            get => angle;
+            set
+            {
+                angle = value;
+                this.LblAxis1.Text = angle.ToString();
+            }
+        }
+
+        public int Angle2
+        {
+            get => angle2;
+            set
+            {
+                angle2 = value;
+                this.LblAxis2.Text = angle2.ToString();
+            }
+        }
+
+        public int Angle3
+        {
+            get => angle3;
+            set
+            {
+                angle3 = value;
+                this.LblAxis3.Text = angle3.ToString();
+            }
+        }
+
+        public int Angle4
+        {
+            get => angle4;
+            set
+            {
+                angle4 = value;
+                this.LblAxis4.Text = angle4.ToString();
+            }
+        }
+
+        public int Angle5
+        {
+            get => angle5;
+            set
+            {
+                angle5 = value;
+                this.LblAxis5.Text = angle5.ToString();
+            }
+        }
+
         public Graphics G { get => g; set => g = value; }
         public bool StatusGripper { get => statusGripper; set => statusGripper = value; }
         public bool StartRender { get => startRender; set => startRender = value; }
+        public bool ShowPoint { get => showPoint; set => showPoint = value; }
+        public Label LblAxis1 { get; set; }
+        public Label LblAxis2 { get; set; }
+        public Label LblAxis3 { get; set; }
+        public Label LblAxis4 { get; set; }
+        public Label LblAxis5 { get; set; }
 
         #endregion Get&Set
 
@@ -65,7 +118,7 @@ namespace brazoRobot.ModelLayer
                     Thread.Sleep(10);
                     this.Render();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                 }
             }
@@ -121,7 +174,6 @@ namespace brazoRobot.ModelLayer
             #endregion Pintar Ejes
 
             this.g = Graphics.FromImage(bmp);
-            this.box.Image = bmp;
 
             // This calculates the bigger radius' lines' coordinates
 
@@ -170,22 +222,6 @@ namespace brazoRobot.ModelLayer
                 finalPointArmPE = new Point(LineCoord(Angle5 - 100, (r / 10) * 3, x5)[0], LineCoord(Angle5 - 100, (r / 10) * 3, y5)[1]);
             }
 
-            //Rule 1
-            Point basePointPolygonRule = new Point(CentroX, CentroY);
-            Point leftPointPolygonRule = new Point(LineCoord(Angle - 90, r, basePointPolygonRule.X)[0], LineCoord(Angle - 90, r, basePointPolygonRule.Y)[1]);
-            Point leftMiddlePointPolygonRule = new Point(LineCoord(Angle - 45, r, basePointPolygonRule.X)[0], LineCoord(Angle - 45, r, basePointPolygonRule.Y)[1]);
-            Point upperPointPolygonRule = finalPointArm1;
-            Point rigthMiddlePointPolygonRule = new Point(LineCoord(Angle + 45, r, basePointPolygonRule.X)[0], LineCoord(Angle + 45, r, basePointPolygonRule.Y)[1]);
-            Point rigthPointPolygonRule = new Point(LineCoord(Angle + 90, r, basePointPolygonRule.X)[0], LineCoord(Angle + 90, r, basePointPolygonRule.Y)[1]);
-
-            Point[] pointsRule = new Point[] { basePointPolygonRule,
-                                               leftPointPolygonRule,
-                                               leftMiddlePointPolygonRule,
-                                               upperPointPolygonRule,
-                                               rigthMiddlePointPolygonRule,
-                                               rigthPointPolygonRule
-            };
-
             //Arm 1
             Point basePointPolygonArm1 = new Point(CentroX, CentroY);
             Point leftPointPolygonArm1 = new Point(LineCoord(Angle - 90, (r / 10) * 5, basePointPolygonArm1.X)[0], LineCoord(Angle - 90, (r / 10) * 5, basePointPolygonArm1.Y)[1]);
@@ -204,22 +240,6 @@ namespace brazoRobot.ModelLayer
                                                rigthMiddleUpperPointPolygonArm1,
                                                rigthMiddlePointPolygonArm1,
                                                rigthPointPolygonArm1
-            };
-
-            //Rule 2
-            Point basePointPolygonRule2 = finalPointArm1;
-            Point leftPointPolygonRule2 = new Point(LineCoord(Angle2 - 90, r, finalPointArm1.X)[0], LineCoord(Angle2 - 90, r, finalPointArm1.Y)[1]);
-            Point leftMiddlePointPolygonRule2 = new Point(LineCoord(Angle2 - 45, r, finalPointArm1.X)[0], LineCoord(Angle2 - 45, r, finalPointArm1.Y)[1]);
-            Point upperPointPolygonRule2 = finalPointArm2;
-            Point rigthMiddlePointPolygonRule2 = new Point(LineCoord(Angle2 + 45, r, finalPointArm1.X)[0], LineCoord(Angle2 + 45, r, finalPointArm1.Y)[1]);
-            Point rigthPointPolygonRule2 = new Point(LineCoord(Angle2 + 90, r, finalPointArm1.X)[0], LineCoord(Angle2 + 90, r, finalPointArm1.Y)[1]);
-
-            Point[] pointsRule2 = new Point[] { basePointPolygonRule2,
-                                               leftPointPolygonRule2,
-                                               leftMiddlePointPolygonRule2,
-                                               upperPointPolygonRule2,
-                                               rigthMiddlePointPolygonRule2,
-                                               rigthPointPolygonRule2
             };
 
             //Arm 2
@@ -242,22 +262,6 @@ namespace brazoRobot.ModelLayer
                                                rigthPointPolygonArm2
             };
 
-            //Rule 3
-            Point basePointPolygonRule3 = finalPointArm2;
-            Point leftPointPolygonRule3 = new Point(LineCoord(Angle3 - 90, r, basePointPolygonRule3.X)[0], LineCoord(Angle3 - 90, r, basePointPolygonRule3.Y)[1]);
-            Point leftMiddlePointPolygonRule3 = new Point(LineCoord(Angle3 - 45, r, basePointPolygonRule3.X)[0], LineCoord(Angle3 - 45, r, basePointPolygonRule3.Y)[1]);
-            Point upperPointPolygonRule3 = finalPointArm3;
-            Point rigthMiddlePointPolygonRule3 = new Point(LineCoord(Angle3 + 45, r, basePointPolygonRule3.X)[0], LineCoord(Angle3 + 45, r, basePointPolygonRule3.Y)[1]);
-            Point rigthPointPolygonRule3 = new Point(LineCoord(Angle3 + 90, r, basePointPolygonRule3.X)[0], LineCoord(Angle3 + 90, r, basePointPolygonRule3.Y)[1]);
-
-            Point[] pointsRule3 = new Point[] { basePointPolygonRule3,
-                                               leftPointPolygonRule3,
-                                               leftMiddlePointPolygonRule3,
-                                               upperPointPolygonRule3,
-                                               rigthMiddlePointPolygonRule3,
-                                               rigthPointPolygonRule3
-            };
-
             //Arm 3
             Point basePointPolygonArm3 = finalPointArm2;
             Point leftPointPolygonArm3 = new Point(LineCoord(Angle3 - 90, (r / 10) * 5, basePointPolygonArm3.X)[0], LineCoord(Angle3 - 90, (r / 10) * 5, basePointPolygonArm3.Y)[1]);
@@ -276,22 +280,6 @@ namespace brazoRobot.ModelLayer
                                                rigthMiddleUpperPointPolygonArm3,
                                                rigthMiddlePointPolygonArm3,
                                                rigthPointPolygonArm3
-            };
-
-            //Rule 3
-            Point basePointPolygonRule4 = finalPointArm3;
-            Point leftPointPolygonRule4 = new Point(LineCoord(Angle4 - 90, r, basePointPolygonRule4.X)[0], LineCoord(Angle4 - 90, r, basePointPolygonRule4.Y)[1]);
-            Point leftMiddlePointPolygonRule4 = new Point(LineCoord(Angle4 - 45, r, basePointPolygonRule4.X)[0], LineCoord(Angle4 - 45, r, basePointPolygonRule4.Y)[1]);
-            Point upperPointPolygonRule4 = finalPointArm4;
-            Point rigthMiddlePointPolygonRule4 = new Point(LineCoord(Angle3 + 45, r, basePointPolygonRule4.X)[0], LineCoord(Angle4 + 45, r, basePointPolygonRule4.Y)[1]);
-            Point rigthPointPolygonRule4 = new Point(LineCoord(Angle3 + 90, r, basePointPolygonRule4.X)[0], LineCoord(Angle4 + 90, r, basePointPolygonRule4.Y)[1]);
-
-            Point[] pointsRule4 = new Point[] { basePointPolygonRule4,
-                                               leftPointPolygonRule4,
-                                               leftMiddlePointPolygonRule4,
-                                               upperPointPolygonRule4,
-                                               rigthMiddlePointPolygonRule4,
-                                               rigthPointPolygonRule4
             };
 
             //Arm 4
@@ -326,38 +314,14 @@ namespace brazoRobot.ModelLayer
             //Fill Poligon 1
             g.FillPolygon(new SolidBrush(Color.DarkBlue), pointsArm1);
 
-            //Draw Ruler 1
-            //foreach (var item in pointsRule)
-            //{
-            //    g.DrawEllipse(new Pen(Color.BlueViolet, Config.PenSize), item.X, item.Y, 5, 5);
-            //}
-
             //Fill Polygon 2
             g.FillPolygon(new SolidBrush(Color.PaleGreen), pointsArm2);
-
-            //Draw Ruler 2
-            //foreach (var item in pointsRule2)
-            //{
-            //    g.DrawEllipse(new Pen(Color.MediumBlue, Config.PenSize), item.X, item.Y, 5, 5);
-            //}
 
             //Fill Polygon 3
             g.FillPolygon(new SolidBrush(Color.Olive), pointsArm3);
 
-            //Draw Ruler 3
-            //foreach (var item in pointsRule3)
-            //{
-            //    g.DrawEllipse(new Pen(Color.Firebrick, Config.PenSize), item.X, item.Y, 5, 5);
-            //}
-
             //Fill Polygon 4
             g.FillPolygon(new SolidBrush(Color.YellowGreen), pointsArm4);
-
-            //Draw Ruler 4
-            //foreach (var item in pointsRule4)
-            //{
-            //    g.DrawEllipse(new Pen(Color.Firebrick, Config.PenSize), item.X, item.Y, 5, 5);
-            //}
 
             g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArm4, finalPointArmPB); // From centar to points on the Perpendicular Line
             g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), finalPointArm4, finalPointArmPC); // From centar to points on the Perpendicular Line
@@ -370,6 +334,22 @@ namespace brazoRobot.ModelLayer
             g.FillEllipse(Brushes.Black, new Rectangle(new Point(finalPointArm3.X - PositionCircle, finalPointArm3.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
             g.FillEllipse(Brushes.Black, new Rectangle(new Point(finalPointArm4.X - PositionCircle, finalPointArm4.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
 
+            if (showPoint)
+            {
+                Font drawFont = new Font("Arial", 8);
+
+                string formatBase = "     ({0},{1})";
+
+                g.DrawString(string.Format(formatBase, CentroX, CentroY), drawFont, Brushes.Red, (float)CentroX, (float)CentroY);
+                g.DrawString(string.Format(formatBase, finalPointArm1.X, finalPointArm1.Y), drawFont, Brushes.Red, finalPointArm1.X, finalPointArm1.Y);
+                g.DrawString(string.Format(formatBase, finalPointArm2.X, finalPointArm2.Y), drawFont, Brushes.Red, finalPointArm2.X, finalPointArm2.Y);
+                g.DrawString(string.Format(formatBase, finalPointArm3.X, finalPointArm3.Y), drawFont, Brushes.Red, finalPointArm3.X, finalPointArm3.Y);
+                g.DrawString(string.Format(formatBase, finalPointArm4.X, finalPointArm4.Y), drawFont, Brushes.Red, finalPointArm4.X - 80, finalPointArm4.Y);
+                g.DrawString(string.Format(formatBase, finalPointArmPD.X, finalPointArmPD.Y), drawFont, Brushes.Red, finalPointArmPD.X - 80, finalPointArmPD.Y);
+                g.DrawString(string.Format(formatBase, finalPointArmPE.X, finalPointArmPE.Y), drawFont, Brushes.Red, finalPointArmPE.X, finalPointArmPE.Y);
+            }
+
+            this.box.Image = bmp;
             g.Dispose();
         }
     }
