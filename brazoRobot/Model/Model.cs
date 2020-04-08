@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace brazoRobot.ModelLayer
 {
+    /// <summary>
+    /// Model of MVC
+    /// </summary>
     public class Model
     {
         #region Var
@@ -112,6 +115,8 @@ namespace brazoRobot.ModelLayer
 
         #endregion Get&Set
 
+        #region ctor
+
         public Model()
         {
             this.box = new PictureBox();
@@ -122,6 +127,10 @@ namespace brazoRobot.ModelLayer
             this.paintThread.Start();
             r = 50;
         }
+
+        #endregion ctor
+
+        #region Thread
 
         public void StopThread()
         {
@@ -143,29 +152,9 @@ namespace brazoRobot.ModelLayer
             }
         }
 
-        private int[] LineCoord(int angleIn, int radius, int center) // Get any point on the circle by the angle
-        {
-            int[] coord = new int[2]; // Setting up the int array for return
-            angleIn %= (360 * Config.Accuracy);
-            angleIn *= 1;
+        #endregion Thread
 
-            if (angleIn >= 0 && angleIn <= (180 * Config.Accuracy))
-            {
-                coord[0] = center + (int)(radius * Math.Sin(Math.PI * angleIn / (180 * Config.Accuracy)));
-                coord[1] = center - (int)(radius * Math.Cos(Math.PI * angleIn / (180 * Config.Accuracy)));
-            }
-            else
-            {
-                coord[0] = center - (int)(radius * -Math.Sin(Math.PI * angleIn / (180 * Config.Accuracy)));
-                coord[1] = center - (int)(radius * Math.Cos(Math.PI * angleIn / (180 * Config.Accuracy)));
-            }
-            return coord;
-        }
-
-        private double RadianToDegree(double angle)
-        {
-            return angle * (180.0 / Math.PI);
-        }
+        #region PublicMethods
 
         public void Render()
         {
@@ -177,17 +166,9 @@ namespace brazoRobot.ModelLayer
             int SizeCircle = 15;
             int PositionCircle = 8;
 
-            #region Pintar Ejes
+            DrawAxisMap();
 
-            this.g = Graphics.FromImage(bmp);
-            this.g.TranslateTransform(CentroX, CentroY); //dibujar ejes x y y
-            this.g.ScaleTransform(1, -1);
-
-            Pen axisPen = new Pen(Color.Black, 2);
-            this.g.DrawLine(axisPen, CentroX * -1, 0, CentroX * 2, 0); //eje x     //linea horizontal
-            this.g.DrawLine(axisPen, 0, CentroY, 0, CentroY * -1);  //eje y/        //linea vertical
-
-            #endregion Pintar Ejes
+            #region Alter Angles Arm
 
             this.Orchestrator.Angle = this.angle;
             this.Orchestrator.Angle2 = this.angle2;
@@ -196,10 +177,43 @@ namespace brazoRobot.ModelLayer
             this.Orchestrator.Angle5 = this.angle5;
             this.Orchestrator.StatusGripper = this.StatusGripper;
 
+            #endregion Alter Angles Arm
+
             this.Orchestrator.ManipulateArm();
 
             this.g = Graphics.FromImage(bmp);
 
+            DrawArm(SizeCircle, PositionCircle);
+
+            this.box.Image = bmp;
+
+            this.g.Dispose();
+        }
+
+        #endregion PublicMethods
+
+        #region PrivateMethods
+
+        /// <summary>
+        /// Manage the fases of the draw
+        /// </summary>
+        /// <param name="SizeCircle"></param>
+        /// <param name="PositionCircle"></param>
+        private void DrawArm(int SizeCircle, int PositionCircle)
+        {
+            DrawArmParts(SizeCircle);
+
+            DrawUnions(SizeCircle, PositionCircle);
+
+            ShowPointsInGraphic();
+        }
+
+        /// <summary>
+        /// Method for draw all the joints and grapple of arm
+        /// </summary>
+        /// <param name="SizeCircle"></param>
+        private void DrawArmParts(int SizeCircle)
+        {
             //Base
             g.DrawRectangle(new Pen(Color.Black, Config.PenSize), new Rectangle(new Point(CentroX - (SizeCircle * 3), CentroY), new Size(SizeCircle * 6, SizeCircle / 2)));
 
@@ -225,13 +239,27 @@ namespace brazoRobot.ModelLayer
             g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripper, Orchestrator.ActualArm.Gripper.BaseGripperB); // From centar to points on the Perpendicular Line
             g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripperA, Orchestrator.ActualArm.Gripper.BaseGripperC); // From centar to points on the Perpendicular Line
             g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripperB, Orchestrator.ActualArm.Gripper.BaseGripperD); // From centar to points on the Perpendicular Line
+        }
 
-            //Circulos De Unión
-            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[0].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[0].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
-            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[1].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[1].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
-            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[2].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[2].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
-            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[3].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[3].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
+        /// <summary>
+        /// Method for draw the axis x and y inside the picture box
+        /// </summary>
+        private void DrawAxisMap()
+        {
+            this.g = Graphics.FromImage(bmp);
+            this.g.TranslateTransform(CentroX, CentroY); //dibujar ejes x y y
+            this.g.ScaleTransform(1, -1);
 
+            Pen axisPen = new Pen(Color.Black, 2);
+            this.g.DrawLine(axisPen, CentroX * -1, 0, CentroX * 2, 0); //eje x     //linea horizontal
+            this.g.DrawLine(axisPen, 0, CentroY, 0, CentroY * -1);  //eje y/        //linea vertical
+        }
+
+        /// <summary>
+        /// Method for put the point inside of the graphic
+        /// </summary>
+        private void ShowPointsInGraphic()
+        {
             if (showPoint)
             {
                 Font drawFont = new Font("Arial", 8);
@@ -246,9 +274,21 @@ namespace brazoRobot.ModelLayer
                 g.DrawString(string.Format(formatBase, Orchestrator.ActualArm.Gripper.BaseGripperC.X, Orchestrator.ActualArm.Gripper.BaseGripperC.Y), drawFont, Brushes.Red, Orchestrator.ActualArm.Gripper.BaseGripperC.X - 80, Orchestrator.ActualArm.Gripper.BaseGripperC.Y);
                 g.DrawString(string.Format(formatBase, Orchestrator.ActualArm.Gripper.BaseGripperD.X, Orchestrator.ActualArm.Gripper.BaseGripperD.Y), drawFont, Brushes.Red, Orchestrator.ActualArm.Gripper.BaseGripperD.X, Orchestrator.ActualArm.Gripper.BaseGripperD.Y);
             }
-
-            this.box.Image = bmp;
-            g.Dispose();
         }
+
+        /// <summary>
+        /// Method for draw the union points
+        /// </summary>
+        /// <param name="SizeCircle"></param>
+        /// <param name="PositionCircle"></param>
+        private void DrawUnions(int SizeCircle, int PositionCircle)
+        {
+            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[0].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[0].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
+            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[1].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[1].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
+            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[2].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[2].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
+            g.FillEllipse(Brushes.Black, new Rectangle(new Point(Orchestrator.ActualArm.Joints[3].FinalPoint.X - PositionCircle, Orchestrator.ActualArm.Joints[3].FinalPoint.Y - PositionCircle), new Size(SizeCircle, SizeCircle)));
+        }
+
+        #endregion PrivateMethods
     }
 }
