@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblValueAxis5 = new System.Windows.Forms.Label();
             this.lblValueAxis4 = new System.Windows.Forms.Label();
             this.lblValueAxis3 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.tTpAxis3 = new System.Windows.Forms.ToolTip(this.components);
             this.tTpAxis4 = new System.Windows.Forms.ToolTip(this.components);
             this.tTpAxis5 = new System.Windows.Forms.ToolTip(this.components);
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbAxis5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbAxis4)).BeginInit();
@@ -91,6 +91,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Control Brazo";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(270, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 18);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Ángulo";
             // 
             // lblValueAxis5
             // 
@@ -262,19 +272,9 @@
             this.pbGraph.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pbGraph.Location = new System.Drawing.Point(354, 12);
             this.pbGraph.Name = "pbGraph";
-            this.pbGraph.Size = new System.Drawing.Size(537, 425);
+            this.pbGraph.Size = new System.Drawing.Size(530, 420);
             this.pbGraph.TabIndex = 1;
             this.pbGraph.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(270, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 18);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Ángulo";
             // 
             // View
             // 
