@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brazoRobot", "brazoRobot\brazoRobot.csproj", "{F7F40EC5-D288-4441-B88E-4798D1D6DEE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{3146A6C4-45F4-4EC9-A4AB-5A89F66F684E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{9886E145-DCE0-42B3-B1C6-1D50FBE252EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F7F40EC5-D288-4441-B88E-4798D1D6DEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7F40EC5-D288-4441-B88E-4798D1D6DEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7F40EC5-D288-4441-B88E-4798D1D6DEE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3146A6C4-45F4-4EC9-A4AB-5A89F66F684E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3146A6C4-45F4-4EC9-A4AB-5A89F66F684E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3146A6C4-45F4-4EC9-A4AB-5A89F66F684E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3146A6C4-45F4-4EC9-A4AB-5A89F66F684E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9886E145-DCE0-42B3-B1C6-1D50FBE252EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9886E145-DCE0-42B3-B1C6-1D50FBE252EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9886E145-DCE0-42B3-B1C6-1D50FBE252EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9886E145-DCE0-42B3-B1C6-1D50FBE252EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

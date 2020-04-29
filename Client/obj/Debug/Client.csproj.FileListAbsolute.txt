@@ -1,0 +1,7 @@
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\bin\Debug\Client.exe.config
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\bin\Debug\Client.exe
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\bin\Debug\Client.pdb
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\obj\Debug\Client.csprojAssemblyReference.cache
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\obj\Debug\Client.exe
+C:\Users\SX332BS\Desktop\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\obj\Debug\Client.pdb
