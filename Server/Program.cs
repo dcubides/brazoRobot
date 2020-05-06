@@ -1,5 +1,10 @@
-﻿using System;
+﻿using CommonLibrary.Entities.Angle;
+using CommonLibrary.Entities.Arm;
+using Newtonsoft.Json;
+using Server.Business;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -16,6 +21,22 @@ namespace Server
         private const int PORT = 11000;
         private static readonly byte[] buffer = new byte[BUFFER_SIZE];
 
+        private static int CentroX = 265;
+        private static int CentroY = 378;
+        private static OperationArm actual = null;
+
+        public static OperationArm Orchestrator
+        {
+            get
+            {
+                if (actual == null)
+                {
+                    actual = new OperationArm(new Point(CentroX, CentroY));
+                }
+                return actual;
+            }
+        }
+
         private static void Main()
         {
             Console.Title = "Server";
@@ -30,6 +51,7 @@ namespace Server
             Server.Bind(new IPEndPoint(IPAddress.Any, PORT));
             Server.Listen(0);
             Server.BeginAccept(AcceptCallback, null);
+            Orchestrator.ManipulateArm();
             Console.WriteLine("Server setup complete");
         }
 
@@ -65,6 +87,11 @@ namespace Server
             socket.BeginReceive(buffer, 0, BUFFER_SIZE, SocketFlags.None, ReceiveCallback, socket);
             Console.WriteLine("Client connected, waiting for request...");
             Server.BeginAccept(AcceptCallback, null);
+            string jsonString;
+            jsonString = JsonConvert.SerializeObject(Orchestrator.ActualArm);
+
+            byte[] data = Encoding.ASCII.GetBytes(jsonString);
+            socket.Send(data);
         }
 
         private static void ReceiveCallback(IAsyncResult AR)
@@ -88,34 +115,44 @@ namespace Server
             byte[] recBuf = new byte[received];
             Array.Copy(buffer, recBuf, received);
             string text = Encoding.ASCII.GetString(recBuf);
-            Console.WriteLine("Received Text: " + text);
+            Controls _Controls = JsonConvert.DeserializeObject<Controls>(text);
 
-            if (text.ToLower() == "get time") // Client requested time
+            Orchestrator.Angle = _Controls.Angle != 0 ? _Controls.Angle : Orchestrator.Angle;
+            Orchestrator.Angle2 = _Controls.Angle2 != 0 ? _Controls.Angle2 : Orchestrator.Angle2;
+            Orchestrator.Angle3 = _Controls.Angle3 != 0 ? _Controls.Angle3 : Orchestrator.Angle3;
+            Orchestrator.Angle4 = _Controls.Angle4 != 0 ? _Controls.Angle4 : Orchestrator.Angle4;
+            Orchestrator.Angle5 = _Controls.Angle5 != 0 ? _Controls.Angle5 : Orchestrator.Angle5;
+
+            Orchestrator.ManipulateArm();
+            string jsonString;
+            jsonString = JsonConvert.SerializeObject(Orchestrator.ActualArm);
+            //if (text.ToLower() == "get time") // Client requested time
+            //{
+            //Console.WriteLine("Text is a get time request");
+
+            byte[] data = Encoding.ASCII.GetBytes(jsonString);
+            foreach (var client in Clients)
             {
-                Console.WriteLine("Text is a get time request");
-                byte[] data = Encoding.ASCII.GetBytes(DateTime.Now.ToLongTimeString());
-                foreach (var client in Clients)
-                {
-                    int x = client.Send(data);
-                    Console.WriteLine("Time sent to client ");
-                }
+                int x = client.Send(data);
+                Console.WriteLine("Send Alter " + jsonString);
             }
-            else if (text.ToLower() == "exit") // Client wants to exit gracefully
-            {
-                // Always Shutdown before closing
-                current.Shutdown(SocketShutdown.Both);
-                current.Close();
-                Clients.Remove(current);
-                Console.WriteLine("Client disconnected");
-                return;
-            }
-            else
-            {
-                Console.WriteLine("Text is an invalid request");
-                byte[] data = Encoding.ASCII.GetBytes("Invalid request");
-                current.Send(data);
-                Console.WriteLine("Warning Sent");
-            }
+            //}
+            //else if (text.ToLower() == "exit") // Client wants to exit gracefully
+            //{
+            //    // Always Shutdown before closing
+            //    current.Shutdown(SocketShutdown.Both);
+            //    current.Close();
+            //    Clients.Remove(current);
+            //    Console.WriteLine("Client disconnected");
+            //    return;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Text is an invalid request");
+            //    byte[] data = Encoding.ASCII.GetBytes("Invalid request");
+            //    current.Send(data);
+            //    Console.WriteLine("Warning Sent");
+            //}
 
             current.BeginReceive(buffer, 0, BUFFER_SIZE, SocketFlags.None, ReceiveCallback, current);
         }

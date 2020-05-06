@@ -1,0 +1,6 @@
+C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\CommonLibrary\bin\Debug\CommonLibrary.dll
+C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\CommonLibrary\bin\Debug\CommonLibrary.pdb
+C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.csproj.CoreCompileInputs.cache
+C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.dll
+C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.pdb
+C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.csprojAssemblyReference.cache

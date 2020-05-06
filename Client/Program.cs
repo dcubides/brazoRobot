@@ -1,9 +1,13 @@
-﻿using System;
+﻿using CommonLibrary.Entities.Angle;
+using CommonLibrary.Entities.Arm;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Client
@@ -14,6 +18,9 @@ namespace Client
 
         private static readonly Socket ClientSocket = new Socket
            (AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+        public static Arm Actual = null;
+        private static Thread reciveThread;
 
         private static void Main(string[] args)
         {
@@ -42,7 +49,25 @@ namespace Client
             }
 
             Console.Clear();
+            reciveThread = new Thread(new ThreadStart(Run));
             Console.WriteLine("Connected");
+            reciveThread.Start();
+        }
+
+        private static void Run()
+        {
+            while (true)
+            {
+                try
+                {
+                    Thread.Sleep(10);
+                    ReceiveResponse();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
         }
 
         private static void RequestLoop()
@@ -52,7 +77,6 @@ namespace Client
             while (true)
             {
                 SendRequest();
-                ReceiveResponse();
             }
         }
 
@@ -71,7 +95,10 @@ namespace Client
         {
             Console.Write("Send a request: ");
             string request = Console.ReadLine();
-            SendString(request);
+            Controls controlObject = new Controls() { Angle2 = 70 };
+            string jsonString;
+            jsonString = JsonConvert.SerializeObject(controlObject);
+            SendString(jsonString);
 
             if (request.ToLower() == "exit")
             {
@@ -96,6 +123,7 @@ namespace Client
             var data = new byte[received];
             Array.Copy(buffer, data, received);
             string text = Encoding.ASCII.GetString(data);
+            Actual = JsonConvert.DeserializeObject<Arm>(text);
             Console.WriteLine(text);
         }
     }

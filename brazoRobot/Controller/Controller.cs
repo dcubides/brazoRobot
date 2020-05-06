@@ -1,5 +1,6 @@
 ﻿using brazoRobot.ModelLayer;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace brazoRobot.ControllerLayer
@@ -21,26 +22,31 @@ namespace brazoRobot.ControllerLayer
 
         internal void AlterArm1(object sender, System.EventArgs e)
         {
+            Thread.Sleep(20);
             this.model.Angle = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm2(object sender, EventArgs e)
         {
+            Thread.Sleep(20);
             this.model.Angle2 = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm3(object sender, EventArgs e)
         {
+            Thread.Sleep(20);
             this.model.Angle3 = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm4(object sender, EventArgs e)
         {
+            Thread.Sleep(20);
             this.model.Angle4 = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm5(object sender, EventArgs e)
         {
+            Thread.Sleep(20);
             this.model.Angle5 = ((TrackBar)sender).Value;
         }
 
@@ -83,11 +89,11 @@ namespace brazoRobot.ControllerLayer
         {
             try
             {
-                this.model.Angle = 0;
-                this.model.Angle2 = 0;
-                this.model.Angle3 = 0;
-                this.model.Angle4 = 0;
-                this.model.Angle5 = 0;
+                //this.model.Angle = 0;
+                //this.model.Angle2 = 0;
+                //this.model.Angle3 = 0;
+                //this.model.Angle4 = 0;
+                //this.model.Angle5 = 0;
             }
             catch (Exception)
             {
