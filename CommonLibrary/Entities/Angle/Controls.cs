@@ -13,5 +13,7 @@ namespace CommonLibrary.Entities.Angle
         public int Angle3 { get; set; }
         public int Angle4 { get; set; }
         public int Angle5 { get; set; }
+
+        public int StatusGripper { get; set; }
     }
 }

@@ -22,31 +22,26 @@ namespace brazoRobot.ControllerLayer
 
         internal void AlterArm1(object sender, System.EventArgs e)
         {
-            Thread.Sleep(20);
             this.model.Angle = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm2(object sender, EventArgs e)
         {
-            Thread.Sleep(20);
             this.model.Angle2 = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm3(object sender, EventArgs e)
         {
-            Thread.Sleep(20);
             this.model.Angle3 = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm4(object sender, EventArgs e)
         {
-            Thread.Sleep(20);
             this.model.Angle4 = ((TrackBar)sender).Value;
         }
 
         internal void AlterArm5(object sender, EventArgs e)
         {
-            Thread.Sleep(20);
             this.model.Angle5 = ((TrackBar)sender).Value;
         }
 

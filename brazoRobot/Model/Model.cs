@@ -61,7 +61,7 @@ namespace brazoRobot.ModelLayer
                 angle2 = value;
                 Orchestrator.controlObject.Angle2 = angle2;
                 Orchestrator.SendRequest();
-                this.LblAxis2.Text = Orchestrator.ActualArm.Joints[1].Angle.ToString();
+                //this.LblAxis2.Text = Orchestrator.ActualArm.Joints[1].Angle.ToString();
             }
         }
 
@@ -73,7 +73,7 @@ namespace brazoRobot.ModelLayer
                 angle3 = value;
                 Orchestrator.controlObject.Angle3 = angle3;
                 Orchestrator.SendRequest();
-                this.LblAxis3.Text = Orchestrator.ActualArm.Joints[2].Angle.ToString();
+                //this.LblAxis3.Text = Orchestrator.ActualArm.Joints[2].Angle.ToString();
             }
         }
 
@@ -85,7 +85,7 @@ namespace brazoRobot.ModelLayer
                 angle4 = value;
                 Orchestrator.controlObject.Angle4 = angle4;
                 Orchestrator.SendRequest();
-                this.LblAxis4.Text = Orchestrator.ActualArm.Joints[3].Angle.ToString();
+                //this.LblAxis4.Text = Orchestrator.ActualArm.Joints[3].Angle.ToString();
             }
         }
 
@@ -97,7 +97,7 @@ namespace brazoRobot.ModelLayer
                 angle5 = value;
                 Orchestrator.controlObject.Angle5 = angle5;
                 Orchestrator.SendRequest();
-                this.LblAxis5.Text = Orchestrator.ActualArm.Joints[4].Angle.ToString();
+                //this.LblAxis5.Text = Orchestrator.ActualArm.Joints[4].Angle.ToString();
             }
         }
 

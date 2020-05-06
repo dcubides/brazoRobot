@@ -115,20 +115,22 @@ namespace Server
             byte[] recBuf = new byte[received];
             Array.Copy(buffer, recBuf, received);
             string text = Encoding.ASCII.GetString(recBuf);
-            Controls _Controls = JsonConvert.DeserializeObject<Controls>(text);
+            string[] RecivedObj = text.Split('_');
+            for (int i = 0; i < RecivedObj.Length - 1; i++)
+            {
+                Controls _Controls = JsonConvert.DeserializeObject<Controls>(RecivedObj[i]);
 
-            Orchestrator.Angle = _Controls.Angle != 0 ? _Controls.Angle : Orchestrator.Angle;
-            Orchestrator.Angle2 = _Controls.Angle2 != 0 ? _Controls.Angle2 : Orchestrator.Angle2;
-            Orchestrator.Angle3 = _Controls.Angle3 != 0 ? _Controls.Angle3 : Orchestrator.Angle3;
-            Orchestrator.Angle4 = _Controls.Angle4 != 0 ? _Controls.Angle4 : Orchestrator.Angle4;
-            Orchestrator.Angle5 = _Controls.Angle5 != 0 ? _Controls.Angle5 : Orchestrator.Angle5;
+                Orchestrator.Angle = _Controls.Angle != 0 ? _Controls.Angle : Orchestrator.Angle;
+                Orchestrator.Angle2 = _Controls.Angle2 != 0 ? _Controls.Angle2 : Orchestrator.Angle2;
+                Orchestrator.Angle3 = _Controls.Angle3 != 0 ? _Controls.Angle3 : Orchestrator.Angle3;
+                Orchestrator.Angle4 = _Controls.Angle4 != 0 ? _Controls.Angle4 : Orchestrator.Angle4;
+                Orchestrator.Angle5 = _Controls.Angle5 != 0 ? _Controls.Angle5 : Orchestrator.Angle5;
 
-            Orchestrator.ManipulateArm();
+                Orchestrator.ManipulateArm();
+            }
+
             string jsonString;
             jsonString = JsonConvert.SerializeObject(Orchestrator.ActualArm);
-            //if (text.ToLower() == "get time") // Client requested time
-            //{
-            //Console.WriteLine("Text is a get time request");
 
             byte[] data = Encoding.ASCII.GetBytes(jsonString);
             foreach (var client in Clients)
@@ -136,23 +138,6 @@ namespace Server
                 int x = client.Send(data);
                 Console.WriteLine("Send Alter " + jsonString);
             }
-            //}
-            //else if (text.ToLower() == "exit") // Client wants to exit gracefully
-            //{
-            //    // Always Shutdown before closing
-            //    current.Shutdown(SocketShutdown.Both);
-            //    current.Close();
-            //    Clients.Remove(current);
-            //    Console.WriteLine("Client disconnected");
-            //    return;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Text is an invalid request");
-            //    byte[] data = Encoding.ASCII.GetBytes("Invalid request");
-            //    current.Send(data);
-            //    Console.WriteLine("Warning Sent");
-            //}
 
             current.BeginReceive(buffer, 0, BUFFER_SIZE, SocketFlags.None, ReceiveCallback, current);
         }
