@@ -1,6 +1,7 @@
 ﻿using CommonLibrary.Entities.Arm;
 using CommonLibrary.Entities.Arm.GripperBase;
 using CommonLibrary.Entities.Arm.Polygon;
+using Server.Business.Logic;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -62,9 +63,13 @@ namespace Server.Business
             if (actualArm == null)
             {
                 joint1 = new UnitPolygon(Angle, this.OriginPointArm);
+                LogicPolygon.RecalculatePointIntialEndPoint(Angle, joint1);
                 joint2 = new UnitPolygon(Angle2, joint1.FinalPoint);
+                LogicPolygon.RecalculatePointIntialEndPoint(Angle2, joint2);
                 joint3 = new UnitPolygon(Angle3, joint2.FinalPoint);
+                LogicPolygon.RecalculatePointIntialEndPoint(Angle3, joint3);
                 joint4 = new UnitPolygon(Angle4, joint3.FinalPoint);
+                LogicPolygon.RecalculatePointIntialEndPoint(Angle4, joint4);
                 gripper = new Gripper(Angle5, StatusGripper, joint4.FinalPoint);
 
                 this.actualArm = new Arm(gripper, new List<UnitPolygon>() { joint1, joint2, joint3, joint4 });
@@ -87,6 +92,12 @@ namespace Server.Business
                 gripper.Status = StatusGripper;
                 gripper.Angle = Angle5;
             }
+
+            LogicPolygon.RecalculatePointIntialEndPoint(Angle, joint1);
+            LogicPolygon.RecalculatePointIntialEndPoint(Angle2, joint2);
+            LogicPolygon.RecalculatePointIntialEndPoint(Angle3, joint3);
+            LogicPolygon.RecalculatePointIntialEndPoint(Angle4, joint4);
+            LogicGripper.RecalculatePointIntialEndPoint(Angle5, gripper);
 
             return actualArm;
         }
