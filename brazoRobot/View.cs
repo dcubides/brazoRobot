@@ -39,6 +39,11 @@ namespace brazoRobot
             this.model.LblAxis3 = this.lblValueAxis3;
             this.model.LblAxis4 = this.lblValueAxis4;
             this.model.LblAxis5 = this.lblValueAxis5;
+            this.model.tbAxis1 = this.tbAxis1;
+            this.model.tbAxis2 = this.tbAxis2;
+            this.model.tbAxis3 = this.tbAxis3;
+            this.model.tbAxis4 = this.tbAxis4;
+            this.model.tbAxis5 = this.tbAxis5;
             this.model.box = this.pbGraph;
             this.model.btnGripper = this.btnGripper;
             AssingEvents();
@@ -46,19 +51,14 @@ namespace brazoRobot
 
         public void AssingEvents()
         {
-            tbAxis1.ValueChanged += new EventHandler(Controller.AlterArm1);
             tbAxis1.Scroll += new EventHandler(Controller.AssingToolTipAxis1);
-            tbAxis2.ValueChanged += new EventHandler(Controller.AlterArm2);
             tbAxis2.Scroll += new EventHandler(Controller.AssingToolTipAxis2);
-            tbAxis3.ValueChanged += new EventHandler(Controller.AlterArm3);
             tbAxis3.Scroll += new EventHandler(Controller.AssingToolTipAxis3);
-            tbAxis4.ValueChanged += new EventHandler(Controller.AlterArm4);
             tbAxis4.Scroll += new EventHandler(Controller.AssingToolTipAxis4);
-            tbAxis5.ValueChanged += new EventHandler(Controller.AlterArm5);
             tbAxis5.Scroll += new EventHandler(Controller.AssingToolTipAxis5);
             btnGripper.Click += new EventHandler(Controller.ActionGripper);
             cbShowPoints.Click += new EventHandler(Controller.ShowPointMap);
-            this.Shown += new EventHandler(Controller.MainInit);
+
             this.FormClosed += new FormClosedEventHandler(Controller.MainEnd);
         }
     }

@@ -1,12 +1,8 @@
 ﻿using CommonLibrary.Entities.Arm;
 using CommonLibrary.Entities.Arm.GripperBase;
 using CommonLibrary.Entities.Arm.Polygon;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server.Business
 {

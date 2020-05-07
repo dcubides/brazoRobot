@@ -1,15 +1,12 @@
 ﻿using CommonLibrary.Entities.Angle;
-using CommonLibrary.Entities.Arm;
 using Newtonsoft.Json;
 using Server.Business;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Server
 {
@@ -125,6 +122,7 @@ namespace Server
                 Orchestrator.Angle3 = _Controls.Angle3 != 0 ? _Controls.Angle3 : Orchestrator.Angle3;
                 Orchestrator.Angle4 = _Controls.Angle4 != 0 ? _Controls.Angle4 : Orchestrator.Angle4;
                 Orchestrator.Angle5 = _Controls.Angle5 != 0 ? _Controls.Angle5 : Orchestrator.Angle5;
+                Orchestrator.StatusGripper = _Controls.StatusGripper;
 
                 Orchestrator.ManipulateArm();
             }

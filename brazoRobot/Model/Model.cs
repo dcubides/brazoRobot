@@ -33,6 +33,11 @@ namespace brazoRobot.ModelLayer
 
         private bool showPoint = false;
         private Thread paintThread;
+        public TrackBar tbAxis1 { get; set; }
+        public TrackBar tbAxis2 { get; set; }
+        public TrackBar tbAxis3 { get; set; }
+        public TrackBar tbAxis4 { get; set; }
+        public TrackBar tbAxis5 { get; set; }
 
         #endregion Var
 
@@ -49,7 +54,6 @@ namespace brazoRobot.ModelLayer
                 angle = value;
                 Orchestrator.controlObject.Angle = angle;
                 Orchestrator.SendRequest();
-                this.LblAxis1.Text = Orchestrator.ActualArm.Joints[0].Angle.ToString();
             }
         }
 
@@ -61,7 +65,6 @@ namespace brazoRobot.ModelLayer
                 angle2 = value;
                 Orchestrator.controlObject.Angle2 = angle2;
                 Orchestrator.SendRequest();
-                //this.LblAxis2.Text = Orchestrator.ActualArm.Joints[1].Angle.ToString();
             }
         }
 
@@ -73,7 +76,6 @@ namespace brazoRobot.ModelLayer
                 angle3 = value;
                 Orchestrator.controlObject.Angle3 = angle3;
                 Orchestrator.SendRequest();
-                //this.LblAxis3.Text = Orchestrator.ActualArm.Joints[2].Angle.ToString();
             }
         }
 
@@ -85,7 +87,6 @@ namespace brazoRobot.ModelLayer
                 angle4 = value;
                 Orchestrator.controlObject.Angle4 = angle4;
                 Orchestrator.SendRequest();
-                //this.LblAxis4.Text = Orchestrator.ActualArm.Joints[3].Angle.ToString();
             }
         }
 
@@ -97,12 +98,21 @@ namespace brazoRobot.ModelLayer
                 angle5 = value;
                 Orchestrator.controlObject.Angle5 = angle5;
                 Orchestrator.SendRequest();
-                //this.LblAxis5.Text = Orchestrator.ActualArm.Joints[4].Angle.ToString();
             }
         }
 
         public Graphics G { get => g; set => g = value; }
-        public bool StatusGripper { get => statusGripper; set => statusGripper = value; }
+
+        public bool StatusGripper
+        {
+            get => statusGripper; set
+            {
+                statusGripper = value;
+                Orchestrator.controlObject.StatusGripper = statusGripper;
+                Orchestrator.SendRequest();
+            }
+        }
+
         public bool StartRender { get => startRender; set => startRender = value; }
         public bool ShowPoint { get => showPoint; set => showPoint = value; }
         public Label LblAxis1 { get; set; }
@@ -125,11 +135,14 @@ namespace brazoRobot.ModelLayer
 
         #endregion Get&Set
 
+        private delegate void SetTextCallback();
+
         #region ctor
 
         public Model()
         {
             this.box = new PictureBox();
+
             this.box.Size = new Size(530, 420);
             this.btnGripper = new Button();
             this.paintThread = new Thread(new ThreadStart(Run));
@@ -178,21 +191,35 @@ namespace brazoRobot.ModelLayer
 
             DrawAxisMap();
 
-            #region Alter Angles Arm
-
-            //this.Orchestrator.StatusGripper = this.StatusGripper;
-
-            #endregion Alter Angles Arm
-
-            //this.Orchestrator.ManipulateArm();
-
             this.g = Graphics.FromImage(bmp);
 
             DrawArm(SizeCircle, PositionCircle);
 
+            this.SetValueTrackBarValues();
+
+            this.SetValueLabels();
+
             this.box.Image = bmp;
 
             this.g.Dispose();
+        }
+
+        private void SetValueTrackBarValues()
+        {
+            this.tbAxis1.Invoke(new MethodInvoker(delegate { tbAxis1.Value = Orchestrator.ActualArm.Joints[0].Angle; }));
+            this.tbAxis2.Invoke(new MethodInvoker(delegate { tbAxis2.Value = Orchestrator.ActualArm.Joints[1].Angle; }));
+            this.tbAxis3.Invoke(new MethodInvoker(delegate { tbAxis3.Value = Orchestrator.ActualArm.Joints[2].Angle; }));
+            this.tbAxis4.Invoke(new MethodInvoker(delegate { tbAxis4.Value = Orchestrator.ActualArm.Joints[3].Angle; }));
+            this.tbAxis5.Invoke(new MethodInvoker(delegate { tbAxis5.Value = Orchestrator.ActualArm.Gripper.Angle; }));
+        }
+
+        private void SetValueLabels()
+        {
+            this.LblAxis1.Invoke(new MethodInvoker(delegate { LblAxis1.Text = Orchestrator.ActualArm.Joints[0].Angle.ToString(); }));
+            this.LblAxis2.Invoke(new MethodInvoker(delegate { LblAxis2.Text = Orchestrator.ActualArm.Joints[1].Angle.ToString(); }));
+            this.LblAxis3.Invoke(new MethodInvoker(delegate { LblAxis3.Text = Orchestrator.ActualArm.Joints[2].Angle.ToString(); }));
+            this.LblAxis4.Invoke(new MethodInvoker(delegate { LblAxis4.Text = Orchestrator.ActualArm.Joints[3].Angle.ToString(); }));
+            this.LblAxis5.Invoke(new MethodInvoker(delegate { LblAxis5.Text = Orchestrator.ActualArm.Gripper.Angle.ToString(); }));
         }
 
         #endregion PublicMethods

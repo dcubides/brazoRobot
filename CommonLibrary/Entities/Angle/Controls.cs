@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CommonLibrary.Entities.Angle
+﻿namespace CommonLibrary.Entities.Angle
 {
     public class Controls
     {
@@ -14,6 +8,6 @@ namespace CommonLibrary.Entities.Angle
         public int Angle4 { get; set; }
         public int Angle5 { get; set; }
 
-        public int StatusGripper { get; set; }
+        public bool StatusGripper { get; set; }
     }
 }
