@@ -193,11 +193,14 @@ namespace brazoRobot.ModelLayer
 
             this.g = Graphics.FromImage(bmp);
 
-            DrawArm(SizeCircle, PositionCircle);
+            if (Orchestrator.ActualArm != null)
+            {
+                DrawArm(SizeCircle, PositionCircle);
 
-            this.SetValueTrackBarValues();
+                this.SetValueTrackBarValues();
 
-            this.SetValueLabels();
+                this.SetValueLabels();
+            }
 
             this.box.Image = bmp;
 
