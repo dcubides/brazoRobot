@@ -47,6 +47,7 @@
     <Compile Include="Entities\Arm\Arm.cs" />
     <Compile Include="Entities\Arm\GripperBase\Gripper.cs" />
     <Compile Include="Entities\Arm\Polygon\UnitPolygon.cs" />
+    <Compile Include="Entities\Graphics\Point.cs" />
     <Compile Include="Function\Functions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "BLBZ7KdZesm1GsbqbYE8SsT1jPpRmyyNVCK0GRe8ivG2qCDHNV6GV9dSMpiNQa3FIG+LDmxp44sR1qXikDY9bg==",
+  "success": true,
+  "projectFilePath": "D:\\Users\\User\\Documents\\Repositorios\\Universidad\\brazoRobot\\Api\\Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

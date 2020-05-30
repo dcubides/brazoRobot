@@ -33,3 +33,18 @@ C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\bra
 C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\obj\Debug\brazoRobot.pdb
 C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\bin\Debug\Newtonsoft.Json.dll
 C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\brazoRobot\bin\Debug\Newtonsoft.Json.xml
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\bin\Debug\brazoRobot.exe.config
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\bin\Debug\brazoRobot.exe
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\bin\Debug\brazoRobot.pdb
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\bin\Debug\CommonLibrary.dll
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\bin\Debug\Newtonsoft.Json.dll
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\bin\Debug\CommonLibrary.pdb
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\bin\Debug\Newtonsoft.Json.xml
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csprojAssemblyReference.cache
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.View.resources
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.Properties.Resources.resources
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.GenerateResource.cache
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.CoreCompileInputs.cache
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.csproj.CopyComplete
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.exe
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\brazoRobot\obj\Debug\brazoRobot.pdb

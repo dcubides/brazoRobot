@@ -17,3 +17,15 @@ C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\bra
 C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\obj\Debug\Client.csprojAssemblyReference.cache
 C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\bin\Debug\Newtonsoft.Json.dll
 C:\Users\SX332BS\Desktop\desktop abril\Universidad\Informatica 1\Brazo Robot\brazoRobot\Client\bin\Debug\Newtonsoft.Json.xml
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\bin\Debug\Client.exe.config
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\bin\Debug\Client.exe
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\bin\Debug\Client.pdb
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\bin\Debug\CommonLibrary.dll
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\bin\Debug\Newtonsoft.Json.dll
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\bin\Debug\CommonLibrary.pdb
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\bin\Debug\Newtonsoft.Json.xml
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\obj\Debug\Client.csprojAssemblyReference.cache
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\obj\Debug\Client.csproj.CopyComplete
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\obj\Debug\Client.exe
+D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\Client\obj\Debug\Client.pdb

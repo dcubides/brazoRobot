@@ -253,27 +253,27 @@ namespace brazoRobot.ModelLayer
             g.DrawRectangle(new Pen(Color.Black, Config.PenSize), new Rectangle(new Point(CentroX - (SizeCircle * 3), CentroY), new Size(SizeCircle * 6, SizeCircle / 2)));
 
             //Lineas de Brazos
-            g.DrawLine(new Pen(Color.Red, Config.PenSize), Orchestrator.ActualArm.Joints[0].InitialPoint, Orchestrator.ActualArm.Joints[0].FinalPoint);   //Linea Roja Primer Brazo
-            g.DrawLine(new Pen(Color.Coral, Config.PenSize), Orchestrator.ActualArm.Joints[1].InitialPoint, Orchestrator.ActualArm.Joints[1].FinalPoint);              //Linea Blue Segundo Brazo
-            g.DrawLine(new Pen(Color.Blue, Config.PenSize), Orchestrator.ActualArm.Joints[2].InitialPoint, Orchestrator.ActualArm.Joints[2].FinalPoint);               //Linea Coral Tercer Brazo
-            g.DrawLine(new Pen(Color.DarkOrange, Config.PenSize), Orchestrator.ActualArm.Joints[3].InitialPoint, Orchestrator.ActualArm.Joints[3].FinalPoint);         //Linea DarkOrange Cuarto Brazo
+            //g.DrawLine(new Pen(Color.Red, Config.PenSize), Orchestrator.ActualArm.Joints[0].InitialPoint, Orchestrator.ActualArm.Joints[0].FinalPoint);   //Linea Roja Primer Brazo
+            //g.DrawLine(new Pen(Color.Coral, Config.PenSize), Orchestrator.ActualArm.Joints[1].InitialPoint, Orchestrator.ActualArm.Joints[1].FinalPoint);              //Linea Blue Segundo Brazo
+            //g.DrawLine(new Pen(Color.Blue, Config.PenSize), Orchestrator.ActualArm.Joints[2].InitialPoint, Orchestrator.ActualArm.Joints[2].FinalPoint);               //Linea Coral Tercer Brazo
+            //g.DrawLine(new Pen(Color.DarkOrange, Config.PenSize), Orchestrator.ActualArm.Joints[3].InitialPoint, Orchestrator.ActualArm.Joints[3].FinalPoint);         //Linea DarkOrange Cuarto Brazo
 
-            //Fill Poligon 1
-            g.FillPolygon(new SolidBrush(Color.DarkBlue), Orchestrator.ActualArm.Joints[0].PolygonPoints);
+            ////Fill Poligon 1
+            //g.FillPolygon(new SolidBrush(Color.DarkBlue), Orchestrator.ActualArm.Joints[0].PolygonPoints);
 
-            //Fill Polygon 2
-            g.FillPolygon(new SolidBrush(Color.PaleGreen), Orchestrator.ActualArm.Joints[1].PolygonPoints);
+            ////Fill Polygon 2
+            //g.FillPolygon(new SolidBrush(Color.PaleGreen), Orchestrator.ActualArm.Joints[1].PolygonPoints);
 
-            //Fill Polygon 3
-            g.FillPolygon(new SolidBrush(Color.Olive), Orchestrator.ActualArm.Joints[2].PolygonPoints);
+            ////Fill Polygon 3
+            //g.FillPolygon(new SolidBrush(Color.Olive), Orchestrator.ActualArm.Joints[2].PolygonPoints);
 
-            //Fill Polygon 4
-            g.FillPolygon(new SolidBrush(Color.YellowGreen), Orchestrator.ActualArm.Joints[3].PolygonPoints);
+            ////Fill Polygon 4
+            //g.FillPolygon(new SolidBrush(Color.YellowGreen), Orchestrator.ActualArm.Joints[3].PolygonPoints);
 
-            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripper, Orchestrator.ActualArm.Gripper.BaseGripperA); // From centar to points on the Perpendicular Line
-            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripper, Orchestrator.ActualArm.Gripper.BaseGripperB); // From centar to points on the Perpendicular Line
-            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripperA, Orchestrator.ActualArm.Gripper.BaseGripperC); // From centar to points on the Perpendicular Line
-            g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripperB, Orchestrator.ActualArm.Gripper.BaseGripperD); // From centar to points on the Perpendicular Line
+            //g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripper, Orchestrator.ActualArm.Gripper.BaseGripperA); // From centar to points on the Perpendicular Line
+            //g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripper, Orchestrator.ActualArm.Gripper.BaseGripperB); // From centar to points on the Perpendicular Line
+            //g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripperA, Orchestrator.ActualArm.Gripper.BaseGripperC); // From centar to points on the Perpendicular Line
+            //g.DrawLine(new Pen(Color.FromArgb(100, 100, 0), Config.PenSize), Orchestrator.ActualArm.Gripper.BaseGripperB, Orchestrator.ActualArm.Gripper.BaseGripperD); // From centar to points on the Perpendicular Line
         }
 
         /// <summary>

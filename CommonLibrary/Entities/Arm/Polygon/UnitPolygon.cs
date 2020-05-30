@@ -1,7 +1,8 @@
 ﻿using CommonLibrary.ConfigLayer;
+using CommonLibrary.Entities.Graphics;
 using CommonLibrary.Function;
 using System;
-using System.Drawing;
+
 
 namespace CommonLibrary.Entities.Arm.Polygon
 {
