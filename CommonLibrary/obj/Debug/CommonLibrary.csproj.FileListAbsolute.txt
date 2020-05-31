@@ -9,3 +9,9 @@ D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\CommonLibrary\bin\De
 D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.csproj.CoreCompileInputs.cache
 D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.dll
 D:\Users\User\Documents\Repositorios\Universidad\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.pdb
+C:\Users\david.cubides\Downloads\informatica\BrazoRobotUI\brazoRobot\CommonLibrary\bin\Debug\CommonLibrary.dll
+C:\Users\david.cubides\Downloads\informatica\BrazoRobotUI\brazoRobot\CommonLibrary\bin\Debug\CommonLibrary.pdb
+C:\Users\david.cubides\Downloads\informatica\BrazoRobotUI\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.csprojAssemblyReference.cache
+C:\Users\david.cubides\Downloads\informatica\BrazoRobotUI\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.csproj.CoreCompileInputs.cache
+C:\Users\david.cubides\Downloads\informatica\BrazoRobotUI\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.dll
+C:\Users\david.cubides\Downloads\informatica\BrazoRobotUI\brazoRobot\CommonLibrary\obj\Debug\CommonLibrary.pdb

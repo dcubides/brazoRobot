@@ -48,7 +48,7 @@ namespace Api
             }
 
             app.UseHttpsRedirection();
-
+             app.UseCors("MyPolicy");
             app.UseRouting();
 
             app.UseAuthorization();
@@ -57,8 +57,6 @@ namespace Api
             {
                 endpoints.MapControllers();
             });
-
-            app.UseCors("MyPolicy");
         }
     }
 }

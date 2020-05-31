@@ -26,33 +26,41 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\david.cubides\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\User\\Documents\\Repositorios\\Universidad\\brazoRobot\\Api\\Api.csproj",
+      "projectUniqueName": "C:\\Users\\david.cubides\\Downloads\\informatica\\BrazoRobotUI\\brazoRobot\\Api\\Api.csproj",
       "projectName": "Api",
-      "projectPath": "D:\\Users\\User\\Documents\\Repositorios\\Universidad\\brazoRobot\\Api\\Api.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\User\\Documents\\Repositorios\\Universidad\\brazoRobot\\Api\\obj\\",
+      "projectPath": "C:\\Users\\david.cubides\\Downloads\\informatica\\BrazoRobotUI\\brazoRobot\\Api\\Api.csproj",
+      "packagesPath": "C:\\Users\\david.cubides\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\david.cubides\\Downloads\\informatica\\BrazoRobotUI\\brazoRobot\\Api\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\david.cubides\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://fuji.sincoerp.com/SincoERP/_packaging/ERP4.0/nuget/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Users\\User\\Documents\\Repositorios\\Universidad\\brazoRobot\\CommonLibrary\\CommonLibrary.csproj": {
-              "projectPath": "D:\\Users\\User\\Documents\\Repositorios\\Universidad\\brazoRobot\\CommonLibrary\\CommonLibrary.csproj"
+            "C:\\Users\\david.cubides\\Downloads\\informatica\\BrazoRobotUI\\brazoRobot\\CommonLibrary\\CommonLibrary.csproj": {
+              "projectPath": "C:\\Users\\david.cubides\\Downloads\\informatica\\BrazoRobotUI\\brazoRobot\\CommonLibrary\\CommonLibrary.csproj"
             }
           }
         }
@@ -75,12 +83,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.2, 3.1.2]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -89,7 +91,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
