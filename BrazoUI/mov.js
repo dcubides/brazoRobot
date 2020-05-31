@@ -293,6 +293,11 @@ function mostrarJSON(data) {
     document.getElementById('tdJson04').innerHTML = "";
     document.getElementById('tdJson05').innerHTML = "";
 
+    delete data.joints[0].polygonPoints;
+    delete data.joints[1].polygonPoints;
+    delete data.joints[2].polygonPoints;
+    delete data.joints[3].polygonPoints;
+
     let regeStr01 = '';
     let regeStr02 = '';
     let regeStr03 = '';
