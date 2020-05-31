@@ -1,5 +1,114 @@
+body {
+    font-family: Calibri;
+    font-size: 12px;
+    margin: 0px 5px 8px 5px;
+}
+
+h1 {
+    margin: 0px;
+    color: #678;
+    font-weight: bold;
+    font-size: 28px;
+    border-bottom: 2px solid #678;
+    padding: 0px;
+    text-transform: lowercase;
+}
+
+h1:first-letter {
+    text-transform: uppercase;
+}
+
+
+/* >>>>>>>>>> Líneas internas de la tabla >>>>>>>>>> */
+
+td,
+th {
+    border-top: 0px none #DADADA;
+    border-right: 0px none #DADADA;
+    border-bottom: 1px solid #DADADA;
+    border-left: 1px solid #DADADA;
+}
+
+input,
+select,
+textarea,
+.control {
+    /* .control es necesario, los controles de .NET aplican esta clase por defecto */
+    font-family: Calibri;
+    font-size: 12px;
+    border: 1px solid #777;
+    border-radius: 6px;
+    padding: 0px 4px 0px 4px;
+    margin: 1px 0px 1px 0px;
+    vertical-align: bottom;
+    outline: none;
+}
+
+
+/* focus (checkbox y radio) */
+
+input[type=checkbox]:focus,
+input[type=radio]:focus {
+    outline: 1px solid #CCF;
+}
+
+.tabla-filtros {
+    box-shadow: 3px 3px 3px #CCC;
+}
+
+.td-nombre-filtro {
+    font-weight: bold;
+    background-color: #EEE;
+    font-size: 13px;
+}
+
+.tabla-repeater>tbody>tr:hover {
+    background-color: #EEC;
+}
+
 #canvasBrazo {
     border: 5px;
     border-radius: 6px;
     background-color: gainsboro;
+    border-color: black;
+    padding: 5px 5px 5px 5px;
+}
+
+.dato-encabezado {
+    /* Ej: EmpresaNombre, EmpresaNit */
+    font-weight: bold;
+    font-size: 14px;
+    color: #678;
+    padding: 0px 5px 0px 5px;
+    display: inline-block;
+}
+
+
+/* >>>>>>>>>> BOTONES >>>>>>>>>> */
+
+.boton {
+    /* Clase por defecto para todos los botones */
+    height: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 22px;
+    padding-right: 22px;
+    background-color: #678;
+    color: white;
+    border-radius: 2px;
+    border: 2px solid #678;
+}
+
+.boton:hover,
+.boton:focus {
+    background-color: #FFF;
+    color: #678;
+}
+
+.boton-principal {
+    /* Ej: Consultar, Guardar */
+    font-size: 14px;
+    height: 25px;
+    margin-left: 3px;
+    margin-right: 3px;
 }

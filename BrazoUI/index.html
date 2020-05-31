@@ -7,64 +7,97 @@
 </head>
 
 <body>
+    <div>
+        <h1>Brazo robot implementando REST API (Net Core 3.1 / HTML, Javascript, CSS)</h1>
+    </div>
+    <div class="dato-encabezado">Universidad Distrital Francisco Jose de Caldas</div><br>
+    <div class="dato-encabezado">Harold Andres Salcedo B</div>
+    <div class="dato-encabezado">Ninileidis Arias</div>
+    <div class="dato-encabezado">Everh David Cubides Enciso</div>
+    <br>
+    <br>
 
-    <div style="display:  inline-block;">
-
-        <table style="border: none;">
+    <div style="float: left;">
+        <table class="tabla-filtros">
             <tr>
                 <td style="border: none;">
-                    <form>
+                    <table class="tabla-filtros">
+                        <tr>
+                            <td class="td-nombre-filtro"> <label>Eje 1</label></td>
+                            <td> <input type="range" id="coor1" min="-90" max="90" value="90"></td>
+                            <td><label id="varlorEje1"></label></td>
+                        </tr>
+                        <tr>
+                            <td class="td-nombre-filtro"> <label>Eje 2</label></td>
+                            <td><input type="range" id="coor2" min="-90" max="90" value="90"></td>
+                            <td><label id="varlorEje2"></label></td>
+                        </tr>
+                        <tr>
+                            <td class="td-nombre-filtro"><label>Eje 3</label></td>
+                            <td> <input type="range" id="coor3" min="-90" max="90" value="90"></td>
+                            <td><label id="varlorEje3"></label></td>
+                        </tr>
+                        <tr>
+                            <td class="td-nombre-filtro"><label>Eje 4</label></td>
+                            <td><input type="range" id="coor4" min="-90" max="135" value="90"></td>
+                            <td><label id="varlorEje4"></label></td>
+                        </tr>
+                        <tr>
+                            <td class="td-nombre-filtro"> <label>Eje 5</label></td>
+                            <td><input type="range" id="coor5" min="-90" max="180" value="90"></td>
+                            <td><label id="varlorEje5"></label></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="td-nombre-filtro"><label>Mostrar puntos</label></td>
+                            <td> <input type="checkbox" id="chkPuntos"></input>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="text-align: center;">
+                                <input type="button" id="btnPinza" value="Pinza" class="boton boton-principal"></input>
+                            </td>
+                        </tr>
 
-                        <div class="form-group">
-                            <label>Eje 1</label>
-                            <input type="range" id="coor1" min="-90" max="90" value="90">
-                            <label id="varlorEje1"></label>
+                    </table>
 
-                        </div>
-
-                        <div class="form-group">
-                            <label>Eje 2</label>
-                            <input type="range" id="coor2" min="-90" max="90" value="90">
-                            <label id="varlorEje2"></label>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Eje 3</label>
-                            <input type="range" id="coor3" min="-90" max="90" value="90">
-                            <label id="varlorEje3"></label>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Eje 4</label>
-                            <input type="range" id="coor4" min="-90" max="135" value="90">
-                            <label id="varlorEje4"></label>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Eje 5</label>
-                            <input type="range" id="coor5" min="-90" max="180" value="90">
-                            <label id="varlorEje5"></label>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Mostrar puntos</label>
-                            <input type="checkbox" id="chkPuntos"></input>
-                        </div>
-                        <div class="form-group">
-                            <input type="button" id="btnPinza" value="Pinza"></input>
-                        </div>
-
-
-
-                    </form>
                 </td>
                 <td style="border: none;"></td>
                 <td style="border: none;">
-                    <canvas id="canvasBrazo" width="500" height="500"></canvas>
+                    <table class="tabla-filtros">
+                        <tr>
+                            <td>
+                                <canvas id="canvasBrazo" width="500" height="500"></canvas>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    <div style="float: center;">
+        <table class="tabla-filtros">
+            <tr>
+                <td class="td-nombre-filtro">Res JSOn Eje 1</td>
+                <td class="td-nombre-filtro">Res JSOn Eje 2</td>
+                <td class="td-nombre-filtro">Res JSOn Eje 3</td>
+                <td class="td-nombre-filtro">Res JSOn Eje 4</td>
+                <td class="td-nombre-filtro">Res JSOn Pinza</td>
+            </tr>
+            <tr>
+                <td id="tdJson01">
+                </td>
+                <td id="tdJson02">
+                </td>
+                <td id="tdJson03">
+                </td>
+                <td id="tdJson04">
+                </td>
+                <td id="tdJson05">
                 </td>
             </tr>
         </table>
-
+    </div>
     </div>
 
 

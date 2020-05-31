@@ -13,6 +13,7 @@ var chkPuntos;
 var brazo;
 const uri = 'https://localhost:5001/Api/Arm'
 var canvas = null;
+var txtAreaJson;
 
 
 
@@ -33,6 +34,7 @@ function inicializar() {
     varlorEje5 = document.getElementById('varlorEje5');
     canvas = document.getElementById("canvasBrazo");
     btnPinza = document.getElementById("btnPinza");
+    txtAreaJson = document.getElementById('txtAreaJson');
     chkPuntos = document.getElementById("chkPuntos");
     cargarEventos();
     mostrarValorRanges();
@@ -126,6 +128,7 @@ async function modificarBrazo(e) {
             brazo = data;
             actualizarDibujo(data)
             mostrarValorRanges();
+            mostrarJSON(data);
         })
         .catch(error => console.error('Unable to add item.', error));
 }
@@ -281,4 +284,119 @@ async function iniciarCanvas(data) {
         canvasContext.stroke();
 
     }
+}
+
+function mostrarJSON(data) {
+    document.getElementById('tdJson01').innerHTML = "";
+    document.getElementById('tdJson02').innerHTML = "";
+    document.getElementById('tdJson03').innerHTML = "";
+    document.getElementById('tdJson04').innerHTML = "";
+    document.getElementById('tdJson05').innerHTML = "";
+
+    let regeStr01 = '';
+    let regeStr02 = '';
+    let regeStr03 = '';
+    let regeStr04 = '';
+    let regeStr05 = '';
+    jsonStrn01 = JSON.stringify(data.joints[0]);
+    jsonStrn02 = JSON.stringify(data.joints[1]);
+    jsonStrn03 = JSON.stringify(data.joints[2]);
+    jsonStrn04 = JSON.stringify(data.joints[3]);
+    jsonStrn05 = JSON.stringify(data.gripper);
+
+    f = {
+        brace: 0
+    };
+
+    regeStr01 = jsonStrn01.replace(/({|}[,]*|[^{}:]+:[^{}:,]*[,{]*)/g, function(m, p1) {
+        var rtnFn = function() {
+                return '<div style="text-indent: ' + (f['brace'] * 20) + 'px;">' + p1 + '</div>';
+            },
+            rtnStr = 0;
+        if (p1.lastIndexOf('{') === (p1.length - 1)) {
+            rtnStr = rtnFn();
+            f['brace'] += 1;
+        } else if (p1.indexOf('}') === 0) {
+            f['brace'] -= 1;
+            rtnStr = rtnFn();
+        } else {
+            rtnStr = rtnFn();
+        }
+        return rtnStr;
+    });
+
+    regeStr02 = jsonStrn02.replace(/({|}[,]*|[^{}:]+:[^{}:,]*[,{]*)/g, function(m, p1) {
+        var rtnFn = function() {
+                return '<div style="text-indent: ' + (f['brace'] * 20) + 'px;">' + p1 + '</div>';
+            },
+            rtnStr = 0;
+        if (p1.lastIndexOf('{') === (p1.length - 1)) {
+            rtnStr = rtnFn();
+            f['brace'] += 1;
+        } else if (p1.indexOf('}') === 0) {
+            f['brace'] -= 1;
+            rtnStr = rtnFn();
+        } else {
+            rtnStr = rtnFn();
+        }
+        return rtnStr;
+    });
+
+    regeStr03 = jsonStrn03.replace(/({|}[,]*|[^{}:]+:[^{}:,]*[,{]*)/g, function(m, p1) {
+        var rtnFn = function() {
+                return '<div style="text-indent: ' + (f['brace'] * 20) + 'px;">' + p1 + '</div>';
+            },
+            rtnStr = 0;
+        if (p1.lastIndexOf('{') === (p1.length - 1)) {
+            rtnStr = rtnFn();
+            f['brace'] += 1;
+        } else if (p1.indexOf('}') === 0) {
+            f['brace'] -= 1;
+            rtnStr = rtnFn();
+        } else {
+            rtnStr = rtnFn();
+        }
+        return rtnStr;
+    });
+
+    regeStr04 = jsonStrn04.replace(/({|}[,]*|[^{}:]+:[^{}:,]*[,{]*)/g, function(m, p1) {
+        var rtnFn = function() {
+                return '<div style="text-indent: ' + (f['brace'] * 20) + 'px;">' + p1 + '</div>';
+            },
+            rtnStr = 0;
+        if (p1.lastIndexOf('{') === (p1.length - 1)) {
+            rtnStr = rtnFn();
+            f['brace'] += 1;
+        } else if (p1.indexOf('}') === 0) {
+            f['brace'] -= 1;
+            rtnStr = rtnFn();
+        } else {
+            rtnStr = rtnFn();
+        }
+        return rtnStr;
+    });
+
+    regeStr05 = jsonStrn05.replace(/({|}[,]*|[^{}:]+:[^{}:,]*[,{]*)/g, function(m, p1) {
+        var rtnFn = function() {
+                return '<div style="text-indent: ' + (f['brace'] * 20) + 'px;">' + p1 + '</div>';
+            },
+            rtnStr = 0;
+        if (p1.lastIndexOf('{') === (p1.length - 1)) {
+            rtnStr = rtnFn();
+            f['brace'] += 1;
+        } else if (p1.indexOf('}') === 0) {
+            f['brace'] -= 1;
+            rtnStr = rtnFn();
+        } else {
+            rtnStr = rtnFn();
+        }
+        return rtnStr;
+    });
+
+    //txtAreaJson.innerHTML += regeStr;
+    document.getElementById('tdJson01').innerHTML += regeStr01;
+    document.getElementById('tdJson02').innerHTML += regeStr02;
+    document.getElementById('tdJson03').innerHTML += regeStr03;
+    document.getElementById('tdJson04').innerHTML += regeStr04;
+    document.getElementById('tdJson05').innerHTML += regeStr05;
 }
