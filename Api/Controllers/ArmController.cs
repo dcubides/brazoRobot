@@ -5,13 +5,15 @@ using System.Threading.Tasks;
 using Api.Interfaces.Business;
 using CommonLibrary.Entities.Angle;
 using CommonLibrary.Entities.Arm;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")]    
     [ApiController]
+    //[EnableCors("MyPolicy")]
     public class ArmController : ControllerBase
     {
         private IOperationArm Module = null;

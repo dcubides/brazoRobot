@@ -1,0 +1,3 @@
+https://stivengordillo.com/como-dibujar-con-canvas/
+https://www.yunbitsoftware.com/blog/2018/02/22/metodos-de-dibujo-canvas-html5-y-jquery-introduccion-y-ejemplo/
+https://developer.mozilla.org/es/docs/Web/Guide/HTML/Canvas_tutorial/Basic_animations
